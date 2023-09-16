@@ -1,1 +1,23 @@
-<div>fvzv</div>
+<div class="landing-page-container">
+  <form class="form-container" [formGroup]="landingPageForm">
+    <mat-form-field>
+      <mat-label>City</mat-label>
+      <input matInput placeholder="Ex. Tampa" formControlName="city" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>State</mat-label>
+      <mat-select formControlName="state">
+        <mat-option *ngFor="let state of statesList | keyvalue" [value]="state.value">{{
+          state.key
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div>
+      <button mat-button (click)="getLatAndLong()" class="button">
+        Get Forecast
+      </button>
+    </div>
+  </form>
+</div>

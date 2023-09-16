@@ -34,3 +34,8 @@ See deployed site at [Weather Forecast App(NOT DEPLOYED YET)]()
 - [NWS API Documentation Page](https://www.weather.gov/documentation/services-web-api)
 - [NWS YAML File Download](https://api.weather.gov/openapi.yaml)
 - [TailWindCSS for Angular](https://tailwindcss.com/docs/guides/angular)
+- [GeoCode Maps API](https://geocode.maps.co/)
+
+## Special Thanks
+
+Thank you to free geocoding API used to find the latitude and longitude from [GeoCode Maps](). If you would like to know more about their main Mapping Product you can visit [here](https://maps.co/)
