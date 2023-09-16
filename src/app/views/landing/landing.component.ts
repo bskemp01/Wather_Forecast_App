@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { statesList } from 'src/app/consts/statesList.const';
+import { GridpointForecastUnits } from 'src/app/models/NWS_API_Models/gridpointForecastUnits';
 import { GeoLocationFormModel } from 'src/app/models/forms.model';
 import { GeoCodeLocation } from 'src/app/models/geo-code.model';
 import { States } from 'src/app/models/states.model';
@@ -44,6 +45,15 @@ export class LandingComponent implements OnInit, OnDestroy {
           // this.geoLocation = state.latAndLong
         })
     );
+
+    this.sub.add(
+      this.weatherForecastStoreService.stateChanged
+        .pipe(distinctUntilChangedWithProp('forecast'))
+        .subscribe((state: WeatherForecastStoreState) => {
+          console.log('forecast', state.forecast);
+          // this.geoLocation = state.latAndLong
+        })
+    );
   }
 
   getLatAndLong() {
@@ -52,7 +62,7 @@ export class LandingComponent implements OnInit, OnDestroy {
       state: this.landingPageForm.controls.state?.value,
       postalCode: this.landingPageForm.controls.zipCode?.value,
     };
-    this.weatherForecastStoreService.getLatAndLong(this.geoLocation);
+    this.weatherForecastStoreService.getLatAndLong(this.geoLocation, GridpointForecastUnits.Us);
   }
 
   ngOnDestroy(): void {

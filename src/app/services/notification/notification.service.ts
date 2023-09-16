@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Error } from '../../../models/error.model';
+import { Error } from '../../models/error.model';
 
 const nullError: Error = {
   title: '',
