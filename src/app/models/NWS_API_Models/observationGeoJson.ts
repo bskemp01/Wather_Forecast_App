@@ -15,7 +15,7 @@ import { JsonLdContext } from './jsonLdContext';
 import { Observation } from './observation';
 
 export interface ObservationGeoJson extends GeoJsonFeature { 
-    properties?: Observation;
+    properties: Observation;
 }
 export namespace ObservationGeoJson {
 }

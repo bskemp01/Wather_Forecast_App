@@ -15,7 +15,7 @@ import { GeoJsonGeometry } from './geoJsonGeometry';
 import { JsonLdContext } from './jsonLdContext';
 
 export interface AlertGeoJson extends GeoJsonFeature { 
-    properties?: Alert;
+    properties: Alert;
 }
 export namespace AlertGeoJson {
 }

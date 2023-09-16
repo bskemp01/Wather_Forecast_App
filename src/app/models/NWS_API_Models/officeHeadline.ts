@@ -14,7 +14,6 @@ import { JsonLdContext } from './jsonLdContext';
 export interface OfficeHeadline { 
     context?: JsonLdContext;
     id?: string;
-    id?: string;
     office?: string;
     important?: boolean;
     issuanceTime?: Date;

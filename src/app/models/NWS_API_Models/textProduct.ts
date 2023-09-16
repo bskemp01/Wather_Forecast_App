@@ -14,7 +14,6 @@ import { JsonLdContext } from './jsonLdContext';
 export interface TextProduct { 
     context?: JsonLdContext;
     id?: string;
-    id?: string;
     wmoCollectiveId?: string;
     issuingOffice?: string;
     issuanceTime?: Date;

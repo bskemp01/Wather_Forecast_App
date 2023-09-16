@@ -13,5 +13,5 @@
 /**
  * A GeoJSON polygon. Please refer to IETF RFC 7946 for information on the GeoJSON format.
  */
-export interface GeoJsonPolygon extends Array<Array> { 
+export interface GeoJsonPolygon extends Array<any> { 
 }

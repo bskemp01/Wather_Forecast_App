@@ -16,7 +16,6 @@ export interface Office {
     context?: JsonLdContext;
     type?: Office.TypeEnum;
     id?: string;
-    id?: string;
     name?: string;
     address?: OfficeAddress;
     telephone?: string;

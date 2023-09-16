@@ -12,7 +12,6 @@
 import { AlertCollection } from './alertCollection';
 import { AlertCollectionGeoJsonFeatures } from './alertCollectionGeoJsonFeatures';
 import { GeoJsonFeatureCollection } from './geoJsonFeatureCollection';
-import { JsonLdContext } from './jsonLdContext';
 import { PaginationInfo } from './paginationInfo';
 
 export interface AlertCollectionGeoJson extends GeoJsonFeatureCollection { 
@@ -25,7 +24,7 @@ export interface AlertCollectionGeoJson extends GeoJsonFeatureCollection {
      */
     updated?: Date;
     pagination?: PaginationInfo;
-    features?: Array<AlertCollectionGeoJsonFeatures>;
+    // features?: Array<AlertCollectionGeoJsonFeatures>;
 }
 export namespace AlertCollectionGeoJson {
 }

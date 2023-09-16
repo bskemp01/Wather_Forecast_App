@@ -10,4 +10,4 @@
  * Do not edit the class manually.
  */
 
-export type JsonLdContext = Array&lt;any&gt; | any;
+export type JsonLdContext = Array<any>;

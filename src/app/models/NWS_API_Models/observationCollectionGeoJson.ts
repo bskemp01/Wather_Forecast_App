@@ -14,7 +14,7 @@ import { JsonLdContext } from './jsonLdContext';
 import { ObservationCollectionGeoJsonFeatures } from './observationCollectionGeoJsonFeatures';
 
 export interface ObservationCollectionGeoJson extends GeoJsonFeatureCollection { 
-    features?: Array<ObservationCollectionGeoJsonFeatures>;
+    // features?: Array<ObservationCollectionGeoJsonFeatures>;
 }
 export namespace ObservationCollectionGeoJson {
 }

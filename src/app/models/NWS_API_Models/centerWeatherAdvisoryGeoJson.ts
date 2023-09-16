@@ -15,7 +15,7 @@ import { GeoJsonGeometry } from './geoJsonGeometry';
 import { JsonLdContext } from './jsonLdContext';
 
 export interface CenterWeatherAdvisoryGeoJson extends GeoJsonFeature { 
-    properties?: CenterWeatherAdvisory;
+    properties: CenterWeatherAdvisory;
 }
 export namespace CenterWeatherAdvisoryGeoJson {
 }

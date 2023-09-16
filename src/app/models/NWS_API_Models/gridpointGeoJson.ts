@@ -15,7 +15,7 @@ import { Gridpoint } from './gridpoint';
 import { JsonLdContext } from './jsonLdContext';
 
 export interface GridpointGeoJson extends GeoJsonFeature { 
-    properties?: Gridpoint;
+    properties: Gridpoint;
 }
 export namespace GridpointGeoJson {
 }

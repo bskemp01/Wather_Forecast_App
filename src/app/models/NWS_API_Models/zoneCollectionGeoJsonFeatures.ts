@@ -12,5 +12,5 @@
 import { Zone } from './zone';
 
 export interface ZoneCollectionGeoJsonFeatures { 
-    properties?: Zone;
+    properties: Zone;
 }

@@ -12,5 +12,5 @@
 import { Observation } from './observation';
 
 export interface ObservationCollectionGeoJsonFeatures { 
-    properties?: Observation;
+    properties: Observation;
 }

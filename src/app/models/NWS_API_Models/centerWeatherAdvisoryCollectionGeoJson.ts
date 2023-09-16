@@ -14,7 +14,7 @@ import { GeoJsonFeatureCollection } from './geoJsonFeatureCollection';
 import { JsonLdContext } from './jsonLdContext';
 
 export interface CenterWeatherAdvisoryCollectionGeoJson extends GeoJsonFeatureCollection { 
-    features?: Array<CenterWeatherAdvisoryCollectionGeoJsonFeatures>;
+    // features?: Array<CenterWeatherAdvisoryCollectionGeoJsonFeatures>;
 }
 export namespace CenterWeatherAdvisoryCollectionGeoJson {
 }

@@ -15,7 +15,7 @@ import { ObservationStationCollectionGeoJsonFeatures } from './observationStatio
 import { PaginationInfo } from './paginationInfo';
 
 export interface ObservationStationCollectionGeoJson extends GeoJsonFeatureCollection { 
-    features?: Array<ObservationStationCollectionGeoJsonFeatures>;
+    // features?: Array<ObservationStationCollectionGeoJsonFeatures>;
     observationStations?: Array<string>;
     pagination?: PaginationInfo;
 }

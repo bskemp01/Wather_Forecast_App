@@ -15,7 +15,7 @@ import { JsonLdContext } from './jsonLdContext';
 import { RelativeLocation } from './relativeLocation';
 
 export interface RelativeLocationGeoJson extends GeoJsonFeature { 
-    properties?: RelativeLocation;
+    properties: RelativeLocation;
 }
 export namespace RelativeLocationGeoJson {
 }

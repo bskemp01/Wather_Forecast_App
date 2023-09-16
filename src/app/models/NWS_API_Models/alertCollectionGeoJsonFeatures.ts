@@ -12,5 +12,5 @@
 import { Alert } from './alert';
 
 export interface AlertCollectionGeoJsonFeatures { 
-    properties?: Alert;
+    properties: Alert;
 }

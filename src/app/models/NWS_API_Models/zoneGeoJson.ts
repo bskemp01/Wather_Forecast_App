@@ -15,7 +15,7 @@ import { JsonLdContext } from './jsonLdContext';
 import { Zone } from './zone';
 
 export interface ZoneGeoJson extends GeoJsonFeature { 
-    properties?: Zone;
+    properties: Zone;
 }
 export namespace ZoneGeoJson {
 }

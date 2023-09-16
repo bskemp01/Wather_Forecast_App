@@ -15,7 +15,7 @@ import { JsonLdContext } from './jsonLdContext';
 import { Point } from './point';
 
 export interface PointGeoJson extends GeoJsonFeature { 
-    properties?: Point;
+    properties: Point;
 }
 export namespace PointGeoJson {
 }

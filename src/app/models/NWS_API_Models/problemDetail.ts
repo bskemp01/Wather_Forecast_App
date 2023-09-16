@@ -13,7 +13,7 @@
 /**
  * Detail about an error. This document conforms to RFC 7807 (Problem Details for HTTP APIs).
  */
-export interface ProblemDetail extends null<String, any> { 
+export interface ProblemDetail { 
   [key: string]: any;
 
 

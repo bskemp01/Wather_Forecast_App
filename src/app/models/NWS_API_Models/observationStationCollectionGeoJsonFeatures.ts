@@ -12,5 +12,5 @@
 import { ObservationStation } from './observationStation';
 
 export interface ObservationStationCollectionGeoJsonFeatures { 
-    properties?: ObservationStation;
+    properties: ObservationStation;
 }

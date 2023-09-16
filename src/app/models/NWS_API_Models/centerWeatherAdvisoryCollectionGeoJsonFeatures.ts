@@ -12,5 +12,5 @@
 import { CenterWeatherAdvisory } from './centerWeatherAdvisory';
 
 export interface CenterWeatherAdvisoryCollectionGeoJsonFeatures { 
-    properties?: CenterWeatherAdvisory;
+    properties: CenterWeatherAdvisory;
 }

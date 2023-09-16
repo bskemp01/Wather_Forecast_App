@@ -21,8 +21,6 @@ export interface Zone {
     geometry?: GeometryString;
     id?: string;
     type?: Zone.TypeEnum;
-    id?: NWSZoneID;
-    type?: NWSZoneType;
     name?: string;
     effectiveDate?: Date;
     expirationDate?: Date;

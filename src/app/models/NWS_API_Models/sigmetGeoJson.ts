@@ -15,7 +15,7 @@ import { JsonLdContext } from './jsonLdContext';
 import { Sigmet } from './sigmet';
 
 export interface SigmetGeoJson extends GeoJsonFeature { 
-    properties?: Sigmet;
+    properties: Sigmet;
 }
 export namespace SigmetGeoJson {
 }
