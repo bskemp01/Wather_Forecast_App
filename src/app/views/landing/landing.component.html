@@ -1,21 +1,73 @@
 <div class="landing-page-container">
-  <form class="form-container" [formGroup]="landingPageForm">
-    <mat-form-field>
-      <mat-label>City</mat-label>
-      <input matInput placeholder="Ex. Tampa" formControlName="city" />
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>State</mat-label>
-      <mat-select formControlName="state">
-        <mat-option *ngFor="let state of statesList | keyvalue" [value]="state.value">{{
-          state.key
-        }}</mat-option>
-      </mat-select>
-    </mat-form-field>
-
+  <form [formGroup]="landingPageForm" class="form-container">
     <div>
-      <button mat-button (click)="getLatAndLong()" class="button">
+      <div class="locations-unit-container">
+        <div class="location-type-container">
+          <span class="text-body">Choose location type</span>
+          <select formControlName="locationType">
+            <option
+              *ngFor="let location of LocationType | keyvalue"
+              [value]="location.value"
+            >
+              {{ location.key }}
+            </option>
+          </select>
+        </div>
+
+        <div class="units-container">
+          <span class="text-body">Choose Units</span>
+          <select formControlName="units" class="units-select">
+            <option
+              *ngFor="let unit of unitTypes | keyvalue"
+              [value]="unit.value"
+            >
+              {{ unit.key }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="location-input-container">
+      <span class="text-body">Enter your location</span>
+
+      <div
+        class="location-inputs"
+        *ngIf="locationType === LocationType['City & State']"
+      >
+        <div class="city-container">
+          <span class="text-body">City</span>
+          <input placeholder="Ex. Tampa" formControlName="city" />
+        </div>
+
+        <div class="state-container">
+          <span class="text-body">State</span>
+          <select formControlName="state">
+            <option
+              *ngFor="let state of statesList | keyvalue"
+              [value]="state.value"
+            >
+              {{ state.key }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div
+        class="zip-code-inputs"
+        *ngIf="locationType === LocationType['Zip Code']"
+      >
+        <div class="city-container">
+          <span class="text-body">Zip Code</span>
+          <input
+            maxlength="5"
+            placeholder="Ex. 12345"
+            formControlName="zipCode"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="button-container">
+      <button mat-button [disabled]="landingPageForm.invalid" (click)="getLatAndLong()" class="button">
         Get Forecast
       </button>
     </div>
