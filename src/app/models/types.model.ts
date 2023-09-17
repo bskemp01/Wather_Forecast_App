@@ -1,11 +1,11 @@
 export enum UnitTypes {
-    F = 'F',
-    C = 'C',
+    F = 'F - Fahrenheit',
+    C = 'C - Celsius',
 }
 
 export enum UnitsTOGeoUnits {
-    'F' = 'us',
-    'C' = 'si',
+    'F - Fahrenheit' = 'us',
+    'C - Celsius' = 'si',
 }
 
 export type LocationType = 'zipCode' | 'cityAndState';

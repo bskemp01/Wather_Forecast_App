@@ -1,19 +1,3 @@
-.landing-page-container {
-  align-items: center;
-  display: flex;
-  height: 100%;
-  justify-content: center;
-  width: 100%;
-}
-
-.location-input-container {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  height: 100px;
-  justify-content: space-between;
-}
-
 .button {
   background-color: #3f51b5;
   color: white !important;
@@ -21,55 +5,9 @@
   width: 125px;
 }
 
-.units-container {
-  align-items: flex-end;
-}
-
-.units-container,
-.location-type-container {
-  display: flex;
-  flex-direction: column;
-  height: 50px;
-  justify-content: space-between;
-  width: 175px;
-}
-
-.units-select {
-  text-align: center;
-  width: 40px;
-}
-
-.locations-unit-container {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  height: 75px;
-  justify-content: space-between;
-  width: 450px;
-}
-
-.location-inputs {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 450px;
-}
-
-.zip-code-inputs {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 450px;
-}
-
-.city-container,
-.state-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 175px;
+.button:disabled {
+  opacity: 0.5;
+  background-color: grey;
 }
 
 .button-container {
@@ -90,3 +28,77 @@
   padding: 25px;
   width: 550px;
 }
+
+.landing-page-container {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.location-input-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  justify-content: space-between;
+}
+
+.location-inputs {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 450px;
+}
+
+.locations-unit-container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 75px;
+  justify-content: space-between;
+  width: 450px;
+}
+
+.input-boxes {
+  border-radius: 10px;
+  border: solid 2px black;
+  height: 35px;
+  padding-left: 5px;
+}
+
+.units-container {
+  align-items: flex-end;
+}
+
+.units-select {
+  width: 175px;
+}
+
+.zip-code-inputs {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 450px;
+}
+
+.city-container,
+.state-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 175px;
+}
+
+.units-container,
+.location-type-container {
+  display: flex;
+  flex-direction: column;
+  height: 50px;
+  justify-content: space-between;
+  width: 175px;
+}
+

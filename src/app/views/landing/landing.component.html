@@ -4,7 +4,7 @@
       <div class="locations-unit-container">
         <div class="location-type-container">
           <span class="text-body">Choose location type</span>
-          <select formControlName="locationType">
+          <select formControlName="locationType" class="input-boxes">
             <option
               *ngFor="let location of LocationType | keyvalue"
               [value]="location.value"
@@ -16,7 +16,7 @@
 
         <div class="units-container">
           <span class="text-body">Choose Units</span>
-          <select formControlName="units" class="units-select">
+          <select formControlName="units" class="units-select input-boxes">
             <option
               *ngFor="let unit of unitTypes | keyvalue"
               [value]="unit.value"
@@ -36,12 +36,13 @@
       >
         <div class="city-container">
           <span class="text-body">City</span>
-          <input placeholder="Ex. Tampa" formControlName="city" />
+          <input placeholder="Ex. Tampa" formControlName="city" class="input-boxes"/>
         </div>
 
         <div class="state-container">
           <span class="text-body">State</span>
-          <select formControlName="state">
+          <select formControlName="state" class="input-boxes">
+            <option value="null" *ngIf="landingPageForm.get('state')?.value === null">Make selection</option>
             <option
               *ngFor="let state of statesList | keyvalue"
               [value]="state.value"
@@ -67,7 +68,7 @@
       </div>
     </div>
     <div class="button-container">
-      <button mat-button [disabled]="landingPageForm.invalid" (click)="getLatAndLong()" class="button">
+      <button mat-button [disabled]="checkValid()" (click)="getLatAndLong()" class="button">
         Get Forecast
       </button>
     </div>
