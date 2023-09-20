@@ -5,7 +5,7 @@
       index as i
     "
   >
-    <div class="forecast-display-container" *ngIf="i < 6">
+    <div class="forecast-display-container" *ngIf="i < 6" [ngStyle]="{'overflow-y': forecast?.samePeriod!.length > 2 ? 'scroll' : 'scroll'}">
       <div *ngFor="let timeOfDay of forecast.samePeriod; index as t">
         <div
           class="date-container bg-gradient-to-bl from-amber-300 to-red-600"
