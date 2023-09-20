@@ -1,9 +1,9 @@
 <div class="landing-page-container">
   <form [formGroup]="landingPageForm" class="form-container">
     <div>
-      <div class="locations-unit-container">
+      <div class="locations-container">
         <div class="location-type-container">
-          <span class="text-body">Choose location type</span>
+          <span class="text-body text-white">Choose location type</span>
           <select formControlName="locationType" class="input-boxes">
             <option
               *ngFor="let location of LocationType | keyvalue"
@@ -13,36 +13,33 @@
             </option>
           </select>
         </div>
-
-        <div class="units-container">
-          <span class="text-body">Choose Units</span>
-          <select formControlName="units" class="units-select input-boxes">
-            <option
-              *ngFor="let unit of unitTypes | keyvalue"
-              [value]="unit.value"
-            >
-              {{ unit.key }}
-            </option>
-          </select>
-        </div>
       </div>
     </div>
     <div class="location-input-container">
-      <span class="text-body">Enter your location</span>
+      <span class="text-body text-white">Enter your location</span>
 
       <div
         class="location-inputs"
         *ngIf="locationType === LocationType['City & State']"
       >
         <div class="city-container">
-          <span class="text-body">City</span>
-          <input placeholder="Ex. Tampa" formControlName="city" class="input-boxes"/>
+          <span class="text-body text-white">City</span>
+          <input
+            placeholder="Ex. Tampa"
+            formControlName="city"
+            class="input-boxes"
+          />
         </div>
 
         <div class="state-container">
-          <span class="text-body">State</span>
+          <span class="text-body text-white">State</span>
           <select formControlName="state" class="input-boxes">
-            <option value="null" *ngIf="landingPageForm.get('state')?.value === null">Make selection</option>
+            <option
+              value="null"
+              *ngIf="landingPageForm.get('state')?.value === null"
+            >
+              Make selection
+            </option>
             <option
               *ngFor="let state of statesList | keyvalue"
               [value]="state.value"
@@ -60,6 +57,7 @@
         <div class="city-container">
           <span class="text-body">Zip Code</span>
           <input
+            class="input-boxes"
             maxlength="5"
             placeholder="Ex. 12345"
             formControlName="zipCode"
@@ -68,7 +66,12 @@
       </div>
     </div>
     <div class="button-container">
-      <button mat-button [disabled]="checkValid()" (click)="getLatAndLong()" class="button">
+      <button
+        mat-button
+        [disabled]="checkValid()"
+        (click)="getLatAndLong()"
+        class="button"
+      >
         Get Forecast
       </button>
     </div>

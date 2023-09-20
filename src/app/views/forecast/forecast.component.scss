@@ -1,0 +1,16 @@
+.location-container {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  margin-left: 35px;
+}
+
+.loading-spinner-container {
+  display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    top: 45%;
+    position: fixed;
+}

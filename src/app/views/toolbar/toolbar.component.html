@@ -1,1 +1,8 @@
-<div class="toolbar text-title text-white bg-gradient-to-bl from-amber-300 to-red-600">Weather Forecast App</div>
+<div
+  class="toolbar text-title text-white bg-gradient-to-bl from-amber-300 to-red-600"
+>
+  <a href="backToLanding()">Weather Forecast App</a>
+  <div *ngIf="currentPage !== PageTypes.LANDING">
+    <button mat-button class="button" (click)="backToLanding()">New Forecast</button>
+  </div>
+</div> 

@@ -18,7 +18,7 @@ export interface QuantitativeValue {
     /**
      * A measured value
      */
-    value?: number;
+    value?: number | null;
     /**
      * The maximum value of a range of measured values
      */

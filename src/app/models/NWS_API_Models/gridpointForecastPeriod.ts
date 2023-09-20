@@ -26,11 +26,11 @@ export interface GridpointForecastPeriod {
     /**
      * The starting time that this forecast period is valid for.
      */
-    startTime?: Date;
+    startTime?: string;
     /**
      * The ending time that this forecast period is valid for.
      */
-    endTime?: Date;
+    endTime?: string;
     /**
      * Indicates whether this period is daytime or nighttime.
      */
@@ -46,7 +46,7 @@ export interface GridpointForecastPeriod {
     /**
      * If not null, indicates a non-diurnal temperature trend for the period (either rising temperature overnight, or falling temperature during the day) 
      */
-    temperatureTrend?: GridpointForecastPeriod.TemperatureTrendEnum;
+    temperatureTrend?: GridpointForecastPeriod.TemperatureTrendEnum | null;
     probabilityOfPrecipitation?: QuantitativeValue;
     dewpoint?: QuantitativeValue;
     relativeHumidity?: QuantitativeValue;

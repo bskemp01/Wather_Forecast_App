@@ -31,7 +31,7 @@ export interface Point {
     forecastHourly?: string;
     forecastGridData?: string;
     observationStations?: string;
-    relativeLocation?: RelativeLocationGeoJson | RelativeLocationJsonLd;
+    relativeLocation?: RelativeLocationGeoJson;
     forecastZone?: string;
     county?: string;
     fireWeatherZone?: string;

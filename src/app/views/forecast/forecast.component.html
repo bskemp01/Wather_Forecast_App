@@ -1,1 +1,12 @@
-<p>forecast works!</p>
+<div *ngIf="(isForecastLoading$ | async) === false; else showLoading">
+  <div class="location-container">
+    <span class="text-title text-white">{{ location }}</span>
+  </div>
+  <app-forecast-display
+    [displayFullForcastData]="displayFullForcastData"
+  ></app-forecast-display>
+  
+</div>
+<ng-template class="loading-spinner-container" #showLoading>
+  <app-loading></app-loading>
+</ng-template>

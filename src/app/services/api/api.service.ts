@@ -10,6 +10,7 @@ import {
   GridpointForecastUnits,
   Point,
 } from 'src/app/models/NWS_API_Models/models';
+import { CurrentTemp } from 'src/app/models/current-temp.model';
 
 @Injectable({
   providedIn: 'root',
@@ -17,8 +18,15 @@ import {
 export class ApiService {
   private _baseGeoCodeURL = 'https://geocode.maps.co/search?q=';
   private _baseNWSURL = 'https://api.weather.gov';
+  private _openMetroURL = 'https://api.open-meteo.com/v1/forecast?';
 
   constructor(private http: HttpClient) {}
+
+  getCurrentTemp(latAndLong: LatAndLong) {
+    return this.http.get<CurrentTemp>(
+      `${this._openMetroURL}latitude=${latAndLong.latitude}&longitude=${latAndLong.longitude}&current_weather=true&temperature_unit=fahrenheit`
+    );
+  }
 
   getForecastData(point: Point, units: GridpointForecastUnits) {
     return this.http.get<GridpointForecast>(

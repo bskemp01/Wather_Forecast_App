@@ -1,4 +1,12 @@
 <app-toolbar></app-toolbar>
-<div class="container min-w-full bg-gradient-to-br from-teal-400 to-purple-400">
+<div
+  class="container min-w-full min-h-full"
+  [ngClass]="{
+    afternoon: backgroundImage === 'afternoon',
+    morning: backgroundImage === 'morning',
+    night: backgroundImage === 'night',
+    sunset: backgroundImage === 'sunset'
+  }"
+>
   <router-outlet></router-outlet>
 </div>

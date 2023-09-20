@@ -4,30 +4,35 @@ import { ApiService } from '../services/api/api.service';
 import { WeatherForecastStoreState } from '../models/weather-forecast-store-state.model';
 import { ObservableStore } from '@codewithdan/observable-store';
 import { GeoCodeData, GeoCodeLocation } from '../models/geo-code.model';
-import { EMPTY, catchError } from 'rxjs';
+import { BehaviorSubject, EMPTY, catchError } from 'rxjs';
 import { NotificationService } from '../services/notification/notification.service';
 import { messages } from '../consts/messages.const';
 import { Point } from '../models/NWS_API_Models/point';
 import { GridpointForecastUnits } from '../models/NWS_API_Models/gridpointForecastUnits';
 import { GridpointForecast } from '../models/NWS_API_Models/gridpointForecast';
+import { CurrentTemp } from '../models/current-temp.model';
+import { currentTempMock } from '../mock/current-temp-data.mock';
 
 const enum WeatherForecastStates {
   INIT_STATE = 'INIT_STATE',
+  CURRENT_TEMP_UPDATED = 'CURRENT_TEMP_UPDATED',
   FORECAST_UPDATED = 'FORECAST_UPDATED',
   LAT_AND_LONG_UPDATED = 'LAT_AND_LONG_UPDATED',
   POINT_UPDATD = 'POINT_UPDATD',
 }
 
 const initState: WeatherForecastStoreState = {
+  currentTemp: {},
   forecast: {
-    properties: {}
+    properties: {},
   },
   latAndLong: {
     latitude: '',
     longitude: '',
   },
+  location: '',
   point: {
-    properties: {}
+    properties: {},
   },
   units: GridpointForecastUnits.Us,
 };
@@ -35,6 +40,8 @@ const initState: WeatherForecastStoreState = {
   providedIn: 'root',
 })
 export class WeatherForecastStoreService extends ObservableStore<WeatherForecastStoreState> {
+  isForecastLoading$ = new BehaviorSubject<boolean>(false);
+
   constructor(
     private api: ApiService,
     private notificationService: NotificationService
@@ -43,14 +50,37 @@ export class WeatherForecastStoreService extends ObservableStore<WeatherForecast
       stateSliceSelector: (state: WeatherForecastStoreState) => {
         if (!state) return initState;
         return {
+          currentTemp: state.currentTemp,
           forecast: state.forecast,
           latAndLong: state.latAndLong,
+          location: state.location,
           point: state.point,
           units: state.units,
         };
       },
     });
     this.setState(initState, WeatherForecastStates.INIT_STATE);
+  }
+
+  getCurrentTemp() {
+    const st = this.getState();
+    this.api
+      .getCurrentTemp(st.latAndLong)
+      .pipe(
+        catchError((err) => {
+          this.setError(
+            messages.errorMessages.pointsDataError,
+            messages.errorMessages.pointsDataErrorMsg,
+            ''
+          );
+          return EMPTY;
+        })
+      )
+      .subscribe((currentTempData: CurrentTemp) => {
+        const st = this.getState();
+        st.currentTemp = currentTempData;
+        this.setState(st, WeatherForecastStates.CURRENT_TEMP_UPDATED);
+      });
   }
 
   getLatAndLong(location: GeoCodeLocation, units: GridpointForecastUnits) {
@@ -82,12 +112,12 @@ export class WeatherForecastStoreService extends ObservableStore<WeatherForecast
         st.units = units;
         this.setState(st, WeatherForecastStates.LAT_AND_LONG_UPDATED);
         this.getPointsData();
+        this.getCurrentTemp();
       });
   }
 
   getPointsData() {
     const st = this.getState();
-    console.log('st.latAndLong', st.latAndLong)
     this.api
       .getPointsData(st.latAndLong)
       .pipe(
@@ -101,18 +131,21 @@ export class WeatherForecastStoreService extends ObservableStore<WeatherForecast
         })
       )
       .subscribe((pointsData: Point) => {
-        console.log('pointsData', pointsData)
-
         const st = this.getState();
         st.point = pointsData;
+        st.location =
+          pointsData.properties.relativeLocation?.properties.city +
+          ', ' +
+          pointsData.properties.relativeLocation?.properties.state;
         this.setState(st, WeatherForecastStates.POINT_UPDATD);
         this.getForecastData();
       });
   }
 
   getForecastData() {
+    this.isForecastLoading$.next(true);
+
     const st = this.getState();
-    console.log(st.point)
     this.api
       .getForecastData(st.point, st.units)
       .pipe(

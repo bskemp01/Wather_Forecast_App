@@ -1,1 +1,28 @@
-.container { height: 100%; width: 100%;}
+.container {
+  height: 100%;
+  width: 100%;
+}
+
+.afternoon {
+  background-image: url("/assets/afternoon.png");
+  background-size: 100%;
+  background-size: cover;
+}
+
+.morning {
+  background-image: url("/assets/morning.png");
+  background-size: 100%;
+  background-size: cover;
+}
+
+.night {
+  background-image: url("/assets/night.jpg");
+  background-size: 100%;
+  background-size: cover;
+}
+
+.sunset {
+  background-image: url("/assets/sunset.png");
+  background-size: 100%;
+  background-size: cover;
+}

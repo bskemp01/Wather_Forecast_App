@@ -1,0 +1,78 @@
+<div class="display-container" *ngIf="displayFullForcastData">
+  <div
+    *ngFor="
+      let forecast of displayFullForcastData.gridpointForecastData;
+      index as i
+    "
+  >
+    <div class="forecast-display-container" *ngIf="i < 6">
+      <div *ngFor="let timeOfDay of forecast.samePeriod; index as t">
+        <div
+          class="date-container bg-gradient-to-bl from-amber-300 to-red-600"
+          *ngIf="t === 0"
+        >
+          <span class="text-display text-white">{{ timeOfDay.startTime }}</span>
+        </div>
+
+        <div
+          class="forecast-container"
+          [ngStyle]="{
+            'margin-top': forecast?.samePeriod?.length === 1 ? '75%' : '0'
+          }"
+        >
+          <span class="text-display text-white">{{ timeOfDay.name }}</span>
+          <div>
+            <img class="image-icon" src="{{ timeOfDay.icon }}" />
+          </div>
+          <div class="data-container">
+            <div *ngIf="i === 0 && t === 0; else fc">
+              <span class="text-title text-white"
+                >{{
+                  displayFullForcastData.currentTemp?.current_weather
+                    ?.temperature
+                }}&deg;{{ timeOfDay.temperatureUnit }}</span
+              >
+            </div>
+            <ng-template #fc>
+              <span class="text-title text-white"
+                >{{ timeOfDay.temperature }}&deg;{{
+                  timeOfDay.temperatureUnit
+                }}</span
+              >
+            </ng-template>
+
+            <span class="data text-display text-white"
+              ><span class="material-symbols-outlined" style="color: slategrey">
+                rainy_light
+              </span>
+              {{
+                timeOfDay.probabilityOfPrecipitation?.value !== null
+                  ? timeOfDay.probabilityOfPrecipitation?.value + "%"
+                  : "0%"
+              }}</span
+            >
+            <span class="data text-display text-white"
+              ><span class="material-symbols-outlined" style="color: slategrey">
+                humidity_percentage
+              </span>
+              {{
+                timeOfDay.relativeHumidity?.value !== null
+                  ? timeOfDay.relativeHumidity?.value + "%"
+                  : "0%"
+              }}</span
+            >
+            <span class="data text-display text-white"
+              ><span class="material-symbols-outlined" style="color: slategrey">
+                air
+              </span>
+              {{ timeOfDay.windSpeed }} {{ timeOfDay.windDirection }}</span
+            >
+            <span class="forecast text-display text-white">{{
+              timeOfDay.shortForecast
+            }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

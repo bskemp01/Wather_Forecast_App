@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ForecastComponent } from './forecast.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ForecastDisplayComponent } from './forecast-display/forecast-display.component';
+import { LoadingComponent } from '../loading/loading.component';
+import { LoadingModule } from '../loading/loading.module';
 
 const routes: Routes = [
   {
@@ -11,12 +14,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    ForecastComponent
-  ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-  ]
+  declarations: [ForecastComponent, ForecastDisplayComponent],
+  imports: [CommonModule, LoadingModule, RouterModule.forChild(routes)],
 })
-export class ForecastModule { }
+export class ForecastModule {}
