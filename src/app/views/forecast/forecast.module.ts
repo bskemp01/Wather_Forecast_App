@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ForecastDisplayComponent } from './forecast-display/forecast-display.component';
 import { LoadingComponent } from '../loading/loading.component';
 import { LoadingModule } from '../loading/loading.module';
+import { MatDividerModule } from '@angular/material/divider';
 
 const routes: Routes = [
   {
@@ -15,6 +16,6 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [ForecastComponent, ForecastDisplayComponent],
-  imports: [CommonModule, LoadingModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, LoadingModule, MatDividerModule, RouterModule.forChild(routes)],
 })
 export class ForecastModule {}

@@ -70,6 +70,8 @@
             <span class="forecast text-display text-white">{{
               timeOfDay.shortForecast
             }}</span>
+
+            <mat-divider *ngIf="t !== forecast.samePeriod!.length - 1"></mat-divider>
           </div>
         </div>
       </div>
